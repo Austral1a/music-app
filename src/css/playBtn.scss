@@ -1,0 +1,13 @@
+$pl-play-music-back-color: #70C2DF;
+$pl-play-music-w: 45px;
+$pl-play-music-h: 45px;
+.pl-play-music {
+  background-color: $pl-play-music-back-color;
+  border: 0;
+  border-radius: 100%;
+  width: $pl-play-music-w;
+  height: $pl-play-music-h;
+  align-self: flex-end;
+  margin: 0 auto;
+  margin-bottom: 5px;
+}

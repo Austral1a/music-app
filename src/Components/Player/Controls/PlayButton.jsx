@@ -1,8 +1,8 @@
-import '../../css/Player.scss'
-import sound from '../../media/Ben.mp3'
+import '../../../css/playBtn.scss'
 import React, { Component } from 'react'
-import musicPause from '../../Store/actions/MusicPause'
-import musicPlay from '../../Store/actions/MusicPlay'
+import sound from '../../../media/Ben.mp3'
+import musicPause from '../../../Store/actions/MusicPause'
+import musicPlay from '../../../Store/actions/MusicPlay'
 
 import { connect } from 'react-redux'
 
@@ -25,9 +25,27 @@ class PlayButton extends Component {
         this.audio = new Audio(sound);
     }
 
+    launchPlayMusic = () => {
+        console.log(this.props.isMusicPlaying)
+        if ( this.props.isMusicPlaying ) {
+            this.props.setMusicPause()
+            this.audio.pause()
+        } else {
+            this.props.setMusicPlay()
+            this.audio.play()
+        }
+    }
+
     render() {
         return (
-            <button>Play</button>
+            <button onClick={this.launchPlayMusic} className="pl-play-music">{!this.props.isMusicPlaying ?
+                <span className="material-icons">
+                    play_arrow
+                </span>
+                :
+                <span className="material-icons">
+                    pause
+                </span>}</button>
         )
     }
 }
@@ -35,6 +53,6 @@ class PlayButton extends Component {
 const ConnectedPlayButton = connect(
     mapStateToProps,
     mapDispatchToProps
-)(Player)
+)(PlayButton)
 
 export default ConnectedPlayButton

@@ -1,8 +1,8 @@
 import {combineReducers} from "redux"
-import playOrPauseMusic from "./reducers/PlayOrPauseMusicReducer"
+import playOrPauseMusicReducer from "./PlayOrPauseMusicReducer"
 
 const rootReducer = combineReducers({
-    playOrPauseMusic,
+    playOrPauseMusicReducer,
 })
 
 export default rootReducer

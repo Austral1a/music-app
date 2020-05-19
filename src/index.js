@@ -1,14 +1,20 @@
 import './css/General.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Player from './Components/Player'
+import Player from './Components/Player/Player'
 import Background from "./Components/Background";
 import * as serviceWorker from './serviceWorker';
 
+// redux
+import { Provider } from 'react-redux'
+import store from './Store/index'
+
 ReactDOM.render(
-  <React.StrictMode>
-      <Background player={<Player />} />
-  </React.StrictMode>,
+    <Provider store={store}>
+        <React.StrictMode>
+            <Background player={<Player />} />
+        </React.StrictMode>
+    </Provider>,
   document.getElementById('root')
 );
 
