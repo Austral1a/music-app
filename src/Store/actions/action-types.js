@@ -1,2 +1,3 @@
 export const MUSIC_PLAY = 'MUSIC_PLAY'
 export const MUSIC_PAUSE = 'MUSIC_PAUSE'
+export const MUSIC_VOLUME_CHANGING = 'MUSIC_VOLUME_CHANGING'
