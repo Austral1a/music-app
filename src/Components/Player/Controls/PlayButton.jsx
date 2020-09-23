@@ -16,7 +16,8 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 const mapStateToProps = (state) => ({
-    isMusicPlaying: state.playOrPauseMusicReducer.isMusicPlaying
+    isMusicPlaying: state.playOrPauseMusicReducer.isMusicPlaying,
+    musicVolume: state.musicVolumeReducer.musicVolume
 })
 
 class PlayButton extends Component {
@@ -24,9 +25,20 @@ class PlayButton extends Component {
         super(props);
         this.audio = new Audio(sound);
     }
+    componentDidMount() {
+        setInterval(() => {
+            console.log(this.props.isMusicPlaying)
+        }, 5000)
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.musicVolume !== prevProps.musicVolume) {
+            this.audio.volume = this.props.musicVolume / 100
+        }
+    }
+
 
     launchPlayMusic = () => {
-        console.log(this.props.isMusicPlaying)
         if ( this.props.isMusicPlaying ) {
             this.props.setMusicPause()
             this.audio.pause()

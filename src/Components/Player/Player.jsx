@@ -1,6 +1,6 @@
 import '../../css/Player.scss'
 import React, { Component } from 'react'
-import ConnectedPlayButton from './Controls/PlayButton'
+import PlayerControls from "./Controls/Controls";
 
 class Player extends Component {
     constructor(props) {
@@ -9,7 +9,7 @@ class Player extends Component {
     render() {
         return (
             <div className="player-body">
-                <ConnectedPlayButton />
+                <PlayerControls />
             </div>
         )
     }
