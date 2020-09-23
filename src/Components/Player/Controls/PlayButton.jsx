@@ -25,11 +25,6 @@ class PlayButton extends Component {
         super(props);
         this.audio = new Audio(sound);
     }
-    componentDidMount() {
-        setInterval(() => {
-            console.log(this.props.isMusicPlaying)
-        }, 5000)
-    }
 
     componentDidUpdate(prevProps) {
         if (this.props.musicVolume !== prevProps.musicVolume) {

@@ -19,12 +19,6 @@ class Volume extends PureComponent {
         super(props);
     }
 
-    componentDidMount() {
-        setInterval(() => {
-            console.log(this.props.musicVolume)
-        }, 1000)
-    }
-
 
     handleChange = (event) => {
         this.props.musicVolChanging(event.target.value)
